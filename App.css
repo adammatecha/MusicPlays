@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a12;
+  --card: #12121f;
+  --accent: #7b5cff;
+  --accent2: #00d4ff;
+  --text: #e8e8ff;
+  --muted: #8a8ab0;
+  --error: #ff6b8a;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bg-stars {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(123, 92, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(20, 10, 40, 0.8) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  font-size: 36px;
+  filter: drop-shadow(0 0 12px rgba(123, 92, 255, 0.6));
+}
+
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #a78bfa, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.user-info {
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.player-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(123, 92, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.url-input {
+  flex: 1;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(123, 92, 255, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.url-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.2);
+}
+
+.url-input::placeholder {
+  color: var(--muted);
+}
+
+.play-btn {
+  background: linear-gradient(135deg, #7b5cff, #00d4ff);
+  border: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.play-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(123, 92, 255, 0.4);
+}
+
+.play-btn:active {
+  transform: translateY(0);
+}
+
+.error {
+  background: rgba(255, 107, 138, 0.15);
+  color: var(--error);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.embed-container {
+  flex: 1;
+  min-height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+
+.embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+  min-height: 220px;
+}
+
+.placeholder {
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  text-align: center;
+  padding: 20px;
+}
+
+.galaxy {
+  font-size: 48px;
+  margin-bottom: 8px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.hint {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.tips {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+}
+
+.tips h3 {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--accent2);
+}
+
+.tips ul {
+  list-style: none;
+  color: var(--muted);
+}
+
+.tips li {
+  padding: 2px 0;
+}
+
+.tips li::before {
+  content: "✦ ";
+  color: var(--accent);
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-top: 8px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 500px) {
+  .app {
+    padding: 12px;
+  }
+  .logo h1 {
+    font-size: 1.3rem;
+  }
+  .input-row {
+    flex-direction: column;
+  }
+  .play-btn {
+    padding: 12px;
+  }
+}
